@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sangkara Agrikultur - Sayuran Hidroponik Segar & Sehat</title>
+    <meta
+      name="description"
+      content="Sangkara Agrikultur menyediakan sayuran segar, bersih, dan bebas pestisida yang ditanam dengan metode hidroponik modern. Langsung dari kebun kami ke meja Anda."
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS (Animate On Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Favicon (Contoh) -->
+    <link
+      rel="icon"
+      href="https://placehold.co/32x32/22C55E/FFFFFF?text=SA"
+      type="image/png"
+    />
+
+    <style>
+      /* Menggunakan font Inter sebagai default */
+      body {
+        font-family: "Inter", sans-serif;
+        scroll-behavior: smooth;
+      }
+      /* Efek gradien pada hero section untuk keterbacaan teks */
+      .hero-gradient {
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0.3)
+        );
+      }
+      .section-title {
+        font-weight: 800;
+        font-size: 2.25rem; /* 36px */
+        line-height: 2.5rem; /* 40px */
+      }
+      @media (min-width: 768px) {
+        .section-title {
+          font-size: 3rem; /* 48px */
+          line-height: 1;
+        }
+      }
+      /* Style untuk overlay ikon play video */
+      .video-overlay {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+      .group:hover .video-overlay {
+        opacity: 1;
+      }
+      /* Mencegah 'flickering' AOS di awal load */
+      [data-aos] {
+        opacity: 0;
+        transition-property: opacity, transform;
+      }
+      /* Custom scrollbar untuk galeri horizontal */
+      .horizontal-scroll-container {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+      .horizontal-scroll-container::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, and Opera */
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- Header / Navigation Bar -->
+    <header
+      id="header"
+      class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm transition-all duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <!-- Logo -->
+          <!-- <a href="#" class="flex items-center space-x-2">
+            <img
+              src="poto/logo.jpg"
+              alt="Logo Sangkara Agrikultur"
+              class="h-10 w-10"
+            /> -->
+            <span class="text-2xl font-bold text-gray-900"
+              >Sangkara Agrikultur</span
+            >
+          </a>
+
+          <!-- Navigasi Desktop -->
+          <nav class="hidden md:flex space-x-8">
+            <a
+              href="#keunggulan"
+              class="text-gray-600 hover:text-green-600 font-medium transition-colors"
+              >Keunggulan</a
+            >
+            <a
+              href="#produk"
+              class="text-gray-600 hover:text-green-600 font-medium transition-colors"
+              >Produk</a
+            >
+            <a
+              href="#dokumentasi"
+              class="text-gray-600 hover:text-green-600 font-medium transition-colors"
+              >Cerita Kami</a
+            >
+            <a
+              href="#tentang"
+              class="text-gray-600 hover:text-green-600 font-medium transition-colors"
+              >Tentang Kami</a
+            >
+            <a
+              href="#kontak"
+              class="text-gray-600 hover:text-green-600 font-medium transition-colors"
+              >Kontak</a
+            >
+          </nav>
+
+          <!-- Tombol CTA -->
+          <a
+            href="#kontak"
+            class="hidden md:inline-block bg-green-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-green-700 transition-all transform hover:scale-105"
+          >
+            Hubungi Kami
+          </a>
+
+          <!-- Tombol Menu Mobile -->
+          <button
+            id="mobile-menu-button"
+            class="md:hidden p-2 rounded-md text-gray-600 hover:bg-gray-100"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <!-- Menu Mobile -->
+      <div id="mobile-menu" class="hidden md:hidden">
+        <nav class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+          <a
+            href="#keunggulan"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-green-50 hover:text-green-700"
+            >Keunggulan</a
+          >
+          <a
+            href="#produk"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-green-50 hover:text-green-700"
+            >Produk</a
+          >
+          <a
+            href="#dokumentasi"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-green-50 hover:text-green-700"
+            >Cerita Kami</a
+          >
+          <a
+            href="#tentang"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-green-50 hover:text-green-700"
+            >Tentang Kami</a
+          >
+          <a
+            href="#kontak"
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-green-50 hover:text-green-700"
+            >Kontak</a
+          >
+          <a
+            href="#kontak"
+            class="block w-full text-left mt-2 bg-green-600 text-white font-semibold px-4 py-3 rounded-lg shadow-md hover:bg-green-700 transition-all"
+          >
+            Hubungi Kami
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section
+        class="relative h-screen flex items-center justify-center text-white text-center"
+      >
+        <div class="absolute inset-0">
+          <img
+            src="poto/mandiri.jpg"
+            alt="Tim Sangkara Agrikultur dalam pelatihan wirausaha hidroponik"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        <div class="relative z-10 p-4">
+          <h1
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight"
+            style="text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7)"
+          >
+            Segar dari Kebun, Sehat di Meja Anda
+          </h1>
+          <p
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+            class="text-lg md:text-xl max-w-3xl mx-auto mb-8"
+            style="text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7)"
+          >
+            Nikmati sayuran hidroponik berkualitas premium, ditanam secara
+            lokal, bersih, dan bebas pestisida untuk gaya hidup sehat Anda.
+          </p>
+          <a
+            data-aos="zoom-in"
+            data-aos-duration="1000"
+            data-aos-delay="400"
+            href="#produk"
+            class="bg-white text-green-700 font-bold py-4 px-8 rounded-full text-lg shadow-lg hover:bg-gray-100 transition-all transform hover:scale-105"
+          >
+            Lihat Produk Kami
+          </a>
+        </div>
+      </section>
+
+      <!-- Keunggulan Section -->
+      <section id="keunggulan" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="section-title text-gray-900">
+              Kenapa Memilih Sangkara?
+            </h2>
+            <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+              Kami berkomitmen untuk memberikan yang terbaik dari alam dengan
+              bantuan teknologi.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            <!-- Feature 1 -->
+            <div
+              class="text-center p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div
+                class="flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-green-600 mx-auto mb-5"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-gray-900">
+                Bebas Pestisida
+              </h3>
+              <p class="text-gray-600">
+                Ditanam dalam lingkungan terkontrol, menghasilkan sayuran bersih
+                dan aman dikonsumsi.
+              </p>
+            </div>
+            <!-- Feature 2 -->
+            <div
+              class="text-center p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div
+                class="flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-green-600 mx-auto mb-5"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-gray-900">Lebih Segar</h3>
+              <p class="text-gray-600">
+                Dipanen setiap hari dan langsung diantar untuk menjaga kesegaran
+                dan nutrisi optimal.
+              </p>
+            </div>
+            <!-- Feature 3 -->
+            <div
+              class="text-center p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div
+                class="flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-green-600 mx-auto mb-5"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.657 7.343A8 8 0 0117.657 18.657z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-gray-900">Hemat Air</h3>
+              <p class="text-gray-600">
+                Metode hidroponik menggunakan hingga 90% lebih sedikit air
+                dibanding pertanian konvensional.
+              </p>
+            </div>
+            <!-- Feature 4 -->
+            <div
+              class="text-center p-6 bg-gray-50 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <div
+                class="flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-green-600 mx-auto mb-5"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.085a2 2 0 00-1.736.93L5 10m7 0a2 2 0 012 2v5"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-gray-900">
+                Kualitas Terjamin
+              </h3>
+              <p class="text-gray-600">
+                Dari bibit hingga panen, setiap proses kami pantau untuk
+                memastikan kualitas terbaik.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Produk Section -->
+      <section id="produk" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="section-title text-gray-900">Produk Unggulan Kami</h2>
+            <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+              Sayuran pilihan yang siap menyempurnakan hidangan sehat Anda
+              setiap hari.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Product Card 1 -->
+            <div
+              class="bg-white rounded-xl shadow-lg overflow-hidden group"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <img
+                src="poto/selada.jpg"
+                alt="Selada Caipira Segar"
+                class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div class="p-6">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                  Selada Caipira
+                </h3>
+                <p class="text-gray-600">
+                  Renyah dan segar, sempurna untuk salad Caesar atau sebagai
+                  lalapan.
+                </p>
+              </div>
+            </div>
+            <!-- Product Card 2 -->
+            <div
+              class="bg-white rounded-xl shadow-lg overflow-hidden group"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <img
+                src="poto/pakcoy.webp"
+                alt="Pakcoy Segar"
+                class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div class="p-6">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Pakcoy</h3>
+                <p class="text-gray-600">
+                  Superfood kaya nutrisi, ideal untuk smoothies, jus, atau
+                  ditumis.
+                </p>
+              </div>
+            </div>
+            <!-- Product Card 3 -->
+            <div
+              class="bg-white rounded-xl shadow-lg overflow-hidden group"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <img
+                src="poto/seledri.jpg"
+                alt="Seledri Segar"
+                class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div class="p-6">
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Seledri</h3>
+                <p class="text-gray-600">
+                  Aroma khas yang kuat, cocok untuk saus pesto, pasta, dan
+                  masakan Italia.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dokumentasi Section -->
+      <section id="dokumentasi" class="py-20 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="section-title text-gray-900">
+              Cerita di Balik Kebun Kami
+            </h2>
+            <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+              Lihat lebih dekat proses kami dalam menumbuhkan sayuran terbaik
+              untuk Anda.
+            </p>
+          </div>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="200" class="relative">
+          <div
+            class="flex space-x-8 px-4 sm:px-6 lg:px-8 overflow-x-auto pb-8 horizontal-scroll-container"
+          >
+            <!-- Item 1 (Foto) -->
+            <div class="flex-shrink-0 w-80 sm:w-96 group">
+              <div
+                class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200"
+              >
+                <img
+                  src="poto/kunjungan.png"
+                  alt="Penyemaian bibit sayuran."
+                  class="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <p class="mt-4 text-base text-gray-700 text-justify">
+                Kunjungan teman2 @tkmgikawali Tidak hanya teman2 TK B saja yg
+                berkunjung ke GH kami tapi ada teman2 klp TK A juga yg dtg
+                dihari berikutnya. Teman2 TK A belajar mengenal beberapa macam
+                sayuran yg biasa mereka konsumsi sehari-hari. Ada yg sdh tahu
+                nama sayurnya tp ada pula yg blum tahu. Seru & asyik tentunya 😀
+                Kemudian mereka berkeliling melihat sayuran yg ditanam dg metode
+                hidroponik & konvensional 😊 Semoga menjadi pengalaman belajar
+                yg berkesan ya teman2 🤗.
+              </p>
+            </div>
+
+            <!-- Item 3 (Foto) -->
+            <div class="flex-shrink-0 w-80 sm:w-96 group">
+              <div
+                class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200"
+              >
+                <img
+                  src="poto/pagi.png"
+                  alt="Pengecekan kualitas sayuran."
+                  class="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <p class="mt-4 text-base text-gray-700">
+                Pengecekan kualitas harian untuk memastikan pertumbuhan yang
+                optimal.
+              </p>
+            </div>
+            <!-- Item 4 (Foto) -->
+            <div class="flex-shrink-0 w-80 sm:w-96 group">
+              <div
+                class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200"
+              >
+                <img
+                  src="poto/team.png"
+                  alt="Tim Sangkara Agrikultur."
+                  class="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <p class="mt-4 text-base text-gray-700">
+                Tim kami yang bersemangat di balik setiap helai sayuran segar.
+              </p>
+            </div>
+            <!-- Item 5 (Video) -->
+            <div class="flex-shrink-0 w-80 sm:w-96 group">
+              <div
+                class="relative aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-800"
+              >
+                <video
+                  src="video/umkm.mp4"
+                  alt="Proses panen."
+                  class="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                  preload="none"
+                  controls
+                  style="background: #222"
+                  poster="poto/team.png"
+                  <!--
+                  Ganti
+                  dengan
+                  gambar
+                  thumbnail
+                  jika
+                  ada
+                  --
+                >
+                  >
+                </video>
+                <!-- Overlay Play Icon (opsional, jika ingin custom play) -->
+                <!--
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center video-overlay pointer-events-none">
+                  <svg class="h-20 w-20 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                -->
+              </div>
+              <p class="mt-4 text-base text-gray-700">
+                Bazar UMKM dalam agenda pelantikan dan pengukuhan Kadin (Kamar
+                Dagang dan Industri) Ciamis periode 2023-2028.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tentang Kami Section -->
+      <section id="tentang" class="py-20 bg-green-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+              <h2 class="section-title mb-6">
+                Misi Kami di Sangkara Agrikultur
+              </h2>
+              <p class="text-lg mb-4 text-green-100">
+                Sangkara Agrikultur lahir dari keinginan untuk menghadirkan
+                pangan yang tidak hanya sehat, tetapi juga diproduksi dengan
+                cara yang berkelanjutan. Kami percaya bahwa setiap orang berhak
+                mendapatkan akses ke makanan segar dan berkualitas tanpa
+                kompromi.
+              </p>
+              <p class="text-lg text-green-100">
+                Dengan menggabungkan kearifan lokal dan teknologi hidroponik
+                modern, kami membangun pertanian masa depan yang lebih efisien,
+                ramah lingkungan, dan mampu memenuhi kebutuhan nutrisi
+                masyarakat perkotaan.
+              </p>
+            </div>
+            <div
+              class="h-80 md:h-96 rounded-xl overflow-hidden shadow-2xl"
+              data-aos="fade-left"
+            >
+              <img
+                src="poto/team.png"
+                alt="Tim Sangkara Agrikultur di kebun hidroponik"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kontak Section -->
+      <section id="kontak" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="section-title text-gray-900">Tertarik? Hubungi Kami!</h2>
+            <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+              Kami siap melayani kebutuhan sayuran segar untuk pribadi,
+              restoran, maupun hotel Anda.
+            </p>
+          </div>
+          <div class="max-w-lg mx-auto" data-aos="fade-up" data-aos-delay="100">
+            <form action="#" method="POST" class="space-y-6">
+              <div>
+                <label for="name" class="sr-only">Nama</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  autocomplete="name"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500"
+                  placeholder="Nama Anda"
+                />
+              </div>
+              <div>
+                <label for="email" class="sr-only">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  autocomplete="email"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500"
+                  placeholder="Alamat Email"
+                />
+              </div>
+              <div>
+                <label for="message" class="sr-only">Pesan</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500"
+                  placeholder="Tulis pesan Anda di sini..."
+                ></textarea>
+              </div>
+              <div>
+                <button
+                  type="submit"
+                  class="w-full bg-green-600 text-white font-semibold py-4 px-6 rounded-lg shadow-md hover:bg-green-700 transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                >
+                  Kirim Pesan
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+      <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- About -->
+          <div class="md:col-span-1">
+            <h3 class="text-xl font-bold mb-4">Sangkara Agrikultur</h3>
+            <p class="text-gray-400">
+              Menyediakan sayuran hidroponik segar, sehat, dan berkelanjutan
+              untuk Indonesia.
+            </p>
+          </div>
+          <!-- Quick Links -->
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Tautan Cepat</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#keunggulan"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Keunggulan</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#produk"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Produk</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#dokumentasi"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Cerita Kami</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#tentang"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Tentang Kami</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Social Media -->
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Ikuti Kami</h3>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <span class="sr-only">Instagram</span>
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 7.151c-2.67 0-4.849 2.179-4.849 4.849s2.179 4.849 4.849 4.849 4.849-2.179 4.849-4.849-2.179-4.849-4.849-4.849zm0 7.849a3 3 0 110-6 3 3 0 010 6zm5.25-7.849a1.125 1.125 0 11-2.25 0 1.125 1.125 0 012.25 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <span class="sr-only">Facebook</span>
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="mt-8 border-t border-gray-700 pt-8 text-center">
+          <p class="text-base text-gray-400">
+            &copy; 2025 Sangkara Agrikultur. Seluruh hak cipta dilindungi.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- AOS (Animate On Scroll) Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+      // Inisialisasi AOS
+      AOS.init({
+        duration: 800, // Durasi animasi dalam milidetik
+        once: true, // Animasi hanya berjalan sekali
+        offset: 50, // Memicu animasi sedikit lebih awal
+      });
+
+      // Script untuk menu mobile
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Script untuk menutup menu mobile saat link di-klik
+      const navLinks = document.querySelectorAll("#mobile-menu a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // Script untuk mengubah background header saat scroll
+      const header = document.getElementById("header");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          header.classList.add("bg-white/95", "shadow-md");
+          header.classList.remove("bg-white/80");
+        } else {
+          header.classList.remove("bg-white/95", "shadow-md");
+          header.classList.add("bg-white/80");
+        }
+      });
+    </script>
+  </body>
+</html>
